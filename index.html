@@ -5,47 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manoj’s ML Projects</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
+    /* -------- GLOBAL STYLES -------- */
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #222, #6A2C70);
+      background: linear-gradient(135deg, #1b1b1b, #6A2C70);
       color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     header {
       text-align: center;
-      margin: 40px 0 20px;
+      margin: 50px 15px 25px;
     }
 
     header h1 {
-      font-size: 2.2rem;
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
       color: #F08A5D;
+      margin-bottom: 10px;
     }
 
     header p {
       color: #ddd;
-      font-size: 1rem;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      margin: 0;
     }
 
+    /* -------- PROJECT GRID -------- */
     .project-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
+      gap: 30px;
       padding: 20px;
-      width: 90%;
+      width: 95%;
       max-width: 1200px;
+      box-sizing: border-box;
     }
 
-    /* Card styles */
+    /* -------- CARD STYLES -------- */
     .card {
       width: 100%;
-      height: 250px;
+      aspect-ratio: 4 / 3;
       perspective: 1000px;
     }
 
@@ -54,52 +61,57 @@
       height: 100%;
       position: relative;
       transform-style: preserve-3d;
-      transition: transform 0.999s;
+      transition: transform 0.8s ease;
     }
 
     .card:hover .card-inner {
       transform: rotateY(180deg);
     }
 
-    .card-front, .card-back {
+    .card-front,
+    .card-back {
       position: absolute;
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       text-align: center;
-      padding: 15px;
+      padding: 20px;
+      box-sizing: border-box;
+      transition: all 0.3s ease;
     }
 
     .card-front {
       background-color: #6A2C70;
-      border: 4px solid #6A2C70;
+      border: 3px solid #6A2C70;
     }
 
     .card-back {
       background-color: #F08A5D;
-      border: 4px solid #F08A5D;
+      border: 3px solid #F08A5D;
       transform: rotateY(180deg);
     }
 
     .card h2 {
-      font-size: 1.4rem;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
       margin-bottom: 10px;
     }
 
     .card p {
-      font-size: 0.95rem;
+      font-size: clamp(0.85rem, 2.5vw, 1rem);
       color: #fff;
+      margin: 5px 0;
     }
 
+    /* -------- BUTTON STYLES -------- */
     .btn {
       margin-top: 15px;
-      padding: 10px 18px;
+      padding: 10px 20px;
       background-color: #fff;
       color: #F08A5D;
       border: none;
@@ -107,6 +119,7 @@
       font-weight: 600;
       text-decoration: none;
       transition: all 0.3s ease;
+      font-size: clamp(0.8rem, 2vw, 1rem);
     }
 
     .btn:hover {
@@ -115,24 +128,80 @@
       transform: scale(1.05);
     }
 
+    /* -------- FOOTER -------- */
     footer {
       margin-top: auto;
-      padding: 20px;
+      padding: 25px;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: clamp(0.8rem, 2vw, 0.9rem);
       color: #bbb;
+      width: 100%;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
+    /* -------- TABLET VIEW -------- */
+    @media (max-width: 992px) {
+      header {
+        margin: 40px 10px 20px;
       }
+      .project-grid {
+        gap: 25px;
+      }
+    }
+
+    /* -------- MOBILE VIEW -------- */
+    @media (max-width: 768px) {
+      header {
+        margin: 35px 10px 15px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 15px;
+      }
+
       .card {
-        height: 200px;
+        aspect-ratio: 16 / 12;
+      }
+
+      .card-inner {
+        transition: transform 0.6s ease;
+      }
+
+      .btn {
+        padding: 8px 16px;
+      }
+    }
+
+    /* -------- SMALL MOBILE VIEW -------- */
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 1.6rem;
+      }
+
+      .card {
+        aspect-ratio: 1 / 1;
+      }
+
+      .card h2 {
+        font-size: 1.1rem;
+      }
+
+      .card p {
+        font-size: 0.85rem;
+      }
+
+      .btn {
+        padding: 7px 14px;
+      }
+
+      footer {
+        font-size: 0.8rem;
       }
     }
   </style>
 </head>
+
 <body>
   <header>
     <h1>🧠 Manoj’s ML Projects</h1>
@@ -140,7 +209,7 @@
   </header>
 
   <section class="project-grid">
-    <!-- Project Card 1 -->
+    <!-- Supervised Learning -->
     <div class="card">
       <div class="card-inner">
         <div class="card-front">
@@ -151,14 +220,13 @@
           <p>Projects:</p>
           <p><strong>→ House Price Prediction</strong></p>
           <p><strong>→ Spam Email Detection</strong></p>
-        <p><strong>→Customer Churn Prediction</strong></p>
-          
+          <p><strong>→ Customer Churn Prediction</strong></p>
           <a href="supervised.html" class="btn">View Project</a>
         </div>
       </div>
     </div>
 
-    <!-- Project Card 2 -->
+    <!-- Unsupervised Learning -->
     <div class="card">
       <div class="card-inner">
         <div class="card-front">
@@ -174,7 +242,7 @@
       </div>
     </div>
 
-    <!-- Project Card 3 -->
+    <!-- Deep Learning -->
     <div class="card">
       <div class="card-inner">
         <div class="card-front">
