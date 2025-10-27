@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manoj’s ML Projects</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #222, #6A2C70);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #F08A5D;
+    }
+
+    header p {
+      color: #ddd;
+      font-size: 1rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      padding: 20px;
+      width: 90%;
+      max-width: 1200px;
+    }
+
+    /* Card styles */
+    .card {
+      width: 100%;
+      height: 250px;
+      perspective: 1000px;
+    }
+
+    .card-inner {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.999s;
+    }
+
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .card-front {
+      background-color: #6A2C70;
+      border: 4px solid #6A2C70;
+    }
+
+    .card-back {
+      background-color: #F08A5D;
+      border: 4px solid #F08A5D;
+      transform: rotateY(180deg);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #fff;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 18px;
+      background-color: #fff;
+      color: #F08A5D;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #6A2C70;
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #bbb;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .card {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🧠 Manoj’s ML Projects</h1>
+    <p>Exploring AI through Supervised and Unsupervised Learning</p>
+  </header>
+
+  <section class="project-grid">
+    <!-- Project Card 1 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Supervised Learning</h2>
+          <p>Regression & Classification Models</p>
+        </div>
+        <div class="card-back">
+          <p>Projects:</p>
+          <p><strong>→ House Price Prediction</strong></p>
+          <p><strong>→ Spam Email Detection</strong></p>
+        <p><strong>→Customer Churn Prediction</strong></p>
+          
+          <a href="supervised.html" class="btn">View Project</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card 2 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Unsupervised Learning</h2>
+          <p>Clustering & Dimensionality Reduction</p>
+        </div>
+        <div class="card-back">
+          <p>Projects:</p>
+          <p><strong>→ Customer Segmentation</strong></p>
+          <p><strong>→ PCA Visualization</strong></p>
+          <a href="unsupervised.html" class="btn">View Project</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Card 3 -->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <h2>Deep Learning</h2>
+          <p>Neural Networks & CNNs</p>
+        </div>
+        <div class="card-back">
+          <p>Projects:</p>
+          <p><strong>→ Image Classification</strong></p>
+          <p><strong>→ Sentiment Analysis</strong></p>
+          <a href="deep_learning.html" class="btn">View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Manoj | AI Solutions & ML Engineer
+  </footer>
+</body>
+</html>
